@@ -18,3 +18,11 @@ def test_set_alignment():
 def test_character_alignment():
     c = Character('Bob Ross', Alignment.NEUTRAL)
     assert c.alignment == Alignment.NEUTRAL
+
+def test_armor_class():
+    c = Character('Bob Ross')
+    assert c.get_armor_class() == 10
+
+def test_hit_points():
+    c = Character('Bob Ross')
+    assert c.get_hit_points() == 5
