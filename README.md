@@ -12,6 +12,23 @@ Guy Royse [(@guyroyse)](https://twitter.com/guyroyse) and George Walters II [(@w
 
 ## Requirements
 
+Set up python to run locally
+
+- Setup a virtual environment
+- create a project folder and cd into it
+- run from the terminal: python3 -m venv env
+- run from the terminal: source  env/bin/activate
+- run from the terminal: pip install pytest
+- create a folder (in root dir) 'app' and add an __init__.py to the new folder
+- create a file 'main.py' within the 'app' dir (import classes, define methods) 
+- create a folder (in root dir) 'tests' and add an __init__.py to the tests folder
+- within the tests folder, create a folder 'test_app' and add an __init__.py
+- create a file 'test_main.py' (import: from app.main import main)
+- within the tests dir create a file 'conftest.py', create a file 'pytest.ini'
+- run from the terminal: python3 -m pytest tests
+
+You should be able to run all of the methods in 'app/main.py'
+
 ### Iteration 1 - Core
 
 This iteration covers core functionality for leveling, combat, and character attributes.
