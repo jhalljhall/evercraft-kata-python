@@ -1,5 +1,6 @@
 class Character:
-    name = "Ted"
+    def __init__(self, name):
+        self.name = name
 
     @classmethod
     def set_name(self, str):
