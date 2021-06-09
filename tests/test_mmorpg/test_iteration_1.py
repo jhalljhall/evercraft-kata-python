@@ -1,6 +1,7 @@
 from lib.models.Character import Character
 from lib.utils.Alignment import Alignment
 from lib.utils.Dice import Dice
+from lib.utils.DiceType import DiceType
 from lib.utils.Attack import Attack
 
 def test_set_character_name():
@@ -39,19 +40,47 @@ def test_dice_roll():
     assert dice_roll_result == 15
 
 def test_hit_result():
-    hero = Character('Hero')
-    enemy = Charcter('Enemy')
+    attacker = Character('Hero')
+    defender = Character('Enemy')
     dice = Dice(3)
     dice_roll_result = dice.roll()
     am = Attack 
     attackresult = am.attack(attacker, defender, dice_roll_result)
-    assert attackresult == false 
+    assert attackresult == False 
 
 def test_dice_twenty():
-    hero = Character('Hero')
-    enemy = Charcter('Enemy')
+    attacker = Character('Hero')
+    defender = Character('Enemy')
     dice = Dice(20)
     dice_roll_result = dice.roll()
     am = Attack 
     attackresult = am.attack(attacker, defender, dice_roll_result)
-    assert attackresult == true 
+    assert attackresult == True
+
+def test_adjust_hit_points():
+    attacker = Character('Hero')
+    defender = Character('Enemy')
+    dice = Dice(11)
+    dice_roll_result = dice.roll()
+    am = Attack 
+    attackresult = am.attack(attacker, defender, dice_roll_result)
+    if attackresult == True:
+        defender.adjust_hit_points(defender.hit_points - 1)
+    assert defender.hit_points == 4
+
+def test_critical_hit():
+    attacker = Character('Hero')
+    defender = Character('Enemy')
+    dice = Dice(20, DiceType.20D)
+    dice_roll_result = dice.roll()
+    #assume attack power is = 1
+    damage = attacker.attack_power
+    # is dice.isCritical
+    # damage =* 2
+    if dice.isCritical == True:
+        damage *= 2
+    am = Attack 
+    attackresult = am.attack(attacker, defender, dice_roll_result)
+    if attackresult == True:
+        defender.adjust_hit_points(defender.hit_points - damage)
+    assert defender.hit_points == 3
