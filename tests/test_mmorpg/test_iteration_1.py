@@ -65,13 +65,13 @@ def test_adjust_hit_points():
     am = Attack 
     attackresult = am.attack(attacker, defender, dice_roll_result)
     if attackresult == True:
-        defender.adjust_hit_points(defender.hit_points - 1)
+        defender.adjust_hit_points((defender.hit_points - 1))
     assert defender.hit_points == 4
 
 def test_critical_hit():
     attacker = Character('Hero')
     defender = Character('Enemy')
-    dice = Dice(20, DiceType.20D)
+    dice = Dice(20, DiceType.TWENTY)
     dice_roll_result = dice.roll()
     #assume attack power is = 1
     damage = attacker.attack_power
@@ -82,13 +82,13 @@ def test_critical_hit():
     am = Attack 
     attackresult = am.attack(attacker, defender, dice_roll_result)
     if attackresult == True:
-        defender.adjust_hit_points(defender.hit_points - damage)
+        defender.adjust_hit_points((defender.hit_points - damage))
     assert defender.hit_points == 3
 
 def test_is_dead():
     attacker = Character('Hero')
     defender = Character('Enemy')
-    dice = Dice(11, DiceType.20D)
+    dice = Dice(11, DiceType.TWENTY)
     dice_roll_result = dice.roll()
     damage = attacker.attack_power
     while defender.hit_points > 0:
@@ -97,5 +97,5 @@ def test_is_dead():
         am = Attack 
         attackresult = am.attack(attacker, defender, dice_roll_result)
         if attackresult == True:
-            defender.adjust_hit_points(defender.hit_points - damage)
-    assert defender.isDead == True
+            defender.adjust_hit_points((defender.hit_points - damage))
+    assert defender.is_dead() == True

@@ -3,6 +3,8 @@ from lib.utils.Alignment import Alignment
 class Character:
     armor_class = 10
     hit_points = 5
+    attack_power = 1
+    deadness = False
 
     def __init__(self, name, alignment = Alignment.NEUTRAL):
         self.name = name
@@ -27,3 +29,13 @@ class Character:
     @classmethod
     def get_hit_points(self):
         return self.hit_points
+    
+    @classmethod
+    def adjust_hit_points(self, adjusted_hit_points):
+        self.hit_points = adjusted_hit_points
+
+    @classmethod
+    def is_dead(self):
+        if self.hit_points <= 0:
+            self.deadness = True
+        return self.deadness
