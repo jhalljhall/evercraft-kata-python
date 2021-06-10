@@ -128,25 +128,51 @@ def test_charisma_numbers():
     assert c.get_abilityscore(Ability.CHARISMA) == 10
       
 def test_strength_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.STRENGTH) == 0
 
 def test_dexterity_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.DEXTERITY) == 0
 
 def test_constitution_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.CONSTITUTION) == 0
 
 def test_wisdom_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.WISDOM) == 0
 
 def test_intelligence_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.INTELLIGENCE) == 0
 
 def test_charisma_modifiers():
-    c = Character ('Henry')
+    c = Character('Henry')
     assert c.get_abilitymodifier(Ability.CHARSIMA) == 0
+
+def test_strength_lowerbound():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.STRENGTH) >= 1
+
+def test_strength_upperbound():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.STRENGTH) <= 20
+
+def test_ability_score_out_of_highrange_exception():
+    c = Character('Henry')
+    assertRaises(AbilityException, c.set_abilityscore, (Ability.STRENGTH, 21))
+
+def test_ability_score_out_of_lowrange_exception():
+    c = Character('Henry')
+    assertRaises(AbilityException, c.set_abilityscore, (Ability.STRENGTH, 0))
+
+def test_modifier_range():
+    num = 3
+    c = Character('Henry')
+    c.set_abilityscore(Ability.STRENGTH, num)
+    abscore = AbilityScore
+    abscore.set_score(num)
+    cscore = c.get_ability(Ability.STRENGTH)
+    assert cscore.mod == abscore.mod
+
