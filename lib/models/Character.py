@@ -4,7 +4,7 @@ class Character:
     armor_class = 10
     hit_points = 5
     attack_power = 1
-    deadness = False
+    # deadness = False
 
     def __init__(self, name, alignment = Alignment.NEUTRAL):
         self.name = name
@@ -37,5 +37,6 @@ class Character:
     @classmethod
     def is_dead(self):
         if self.hit_points <= 0:
-            self.deadness = True
-        return self.deadness
+            return True      
+        #     self.deadness = True
+        # return self.deadness

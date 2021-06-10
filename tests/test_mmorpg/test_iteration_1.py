@@ -1,8 +1,10 @@
 from lib.models.Character import Character
-from lib.utils.Alignment import Alignment
-from lib.utils.Dice import Dice
-from lib.utils.DiceType import DiceType
-from lib.utils.Attack import Attack
+from lib.utils.character.Alignment import Alignment
+from lib.utils.gameboard.Dice import Dice
+from lib.utils.gameboard.DiceType import DiceType
+from lib.utils.combat.Attack import Attack
+from lib.utils.character.Ability import Ability
+from lib.utils.character.AbilityScore import AbilityScore
 
 def test_set_character_name():
     c = Character
@@ -99,3 +101,52 @@ def test_is_dead():
         if attackresult == True:
             defender.adjust_hit_points((defender.hit_points - damage))
     assert defender.is_dead() == True
+
+
+def test_strength_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.STRENGTH) == 10
+
+def test_dexterity_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.DEXTERITY) == 10
+       
+def test_constitution_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.CONSTITUTION) == 10
+      
+def test_wisdom_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.WISDOM) == 10
+      
+def test_intelligence_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.INTELLIGENCE) == 10
+
+def test_charisma_numbers():
+    c = Character('Henry')
+    assert c.get_abilityscore(Ability.CHARISMA) == 10
+      
+def test_strength_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.STRENGTH) == 0
+
+def test_dexterity_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.DEXTERITY) == 0
+
+def test_constitution_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.CONSTITUTION) == 0
+
+def test_wisdom_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.WISDOM) == 0
+
+def test_intelligence_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.INTELLIGENCE) == 0
+
+def test_charisma_modifiers():
+    c = Character ('Henry')
+    assert c.get_abilitymodifier(Ability.CHARSIMA) == 0
