@@ -1,4 +1,4 @@
-from lib.utils.DiceType import DiceType
+from lib.utils.gameboard.DiceType import DiceType
 
 class Dice:
     dicetype = 0
