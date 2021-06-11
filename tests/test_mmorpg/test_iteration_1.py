@@ -230,7 +230,7 @@ def test_strengthModifier_miss():
 
     assert defender.hit_points == 5
 
-    def test_strengthModifier_miss():
+def test_strengthModifier_miss():
     attacker = Character('Hero')
     defender = Character('Enemy')
     attacker.set_abilityscore(Ability.STRENGTH, 5)
@@ -245,3 +245,18 @@ def test_strengthModifier_miss():
     #     defender.adjust_hit_points((defender.hit_points - am.damage))
 
     assert defender.hit_points == 4
+
+def test_dexterityModifier():
+    c = Character
+    c.set_armorClass(Ability.DEXTERITY, 16)
+    assert c.armor_class = 13
+
+def test_constitutionModifier():
+    c = Character
+    c.set_armorClass(Ability.CONSTITUTION, 18)
+    assert c.hit_points = 9
+
+def test_constitutionModifier():
+    c = Character
+    c.set_armorClass(Ability.CONSTITUTION, 1)
+    assert c.hit_points = 1
