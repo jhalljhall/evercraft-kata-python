@@ -1,2 +1,2 @@
 def bar():
-    return "foobar"
+    return "hello"
