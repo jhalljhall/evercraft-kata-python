@@ -74,7 +74,8 @@ This iteration covers core functionality for leveling, combat, and character att
 > As a character I want to have several abilities so that I am not identical to other characters except in name
 
 - Abilities are Strength, Dexterity, Constitution, Wisdom, Intelligence, Charisma
-- Abilities range from 1 to 20 and default to 10
+- Abilities range from 1 to 20 
+assertand default to 10
 - Abilities have modifiers according to the following table
 
 |   Score   | Modifier |   Score   | Modifier |   Score   | Modifier |   Score   | Modifier |
