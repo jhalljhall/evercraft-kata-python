@@ -7,10 +7,6 @@ from lib.utils.character.Ability import Ability
 from lib.utils.character.AbilityScore import AbilityScore
 import unittest
 
-<<<<<<< HEAD
-def test_my_bar():
-    assert bar() == "hello"
-=======
 def test_set_character_name():
     c = Character
     c.set_name('Bob Ross')
@@ -264,4 +260,3 @@ def test_constitutionModifier():
     c = Character
     c.set_armorClass(Ability.CONSTITUTION, 1)
     assert c.hit_points = 1
->>>>>>> dev
